@@ -9,6 +9,8 @@ import {SharedModule} from '../../shared/shared.module';
 import {DashboardComponent} from '../../modules/dashboard/dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {MatDividerModule} from '@angular/material/divider';
     RouterModule,
     SharedModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule,
+    MatMenuModule
 
   ],
   providers: [],
