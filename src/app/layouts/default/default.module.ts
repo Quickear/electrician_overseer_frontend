@@ -8,6 +8,7 @@ import {RouterModule} from '@angular/router';
 import {SharedModule} from '../../shared/shared.module';
 import {DashboardComponent} from '../../modules/dashboard/dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     BrowserAnimationsModule,
     RouterModule,
     SharedModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDividerModule
 
   ],
   providers: [],
