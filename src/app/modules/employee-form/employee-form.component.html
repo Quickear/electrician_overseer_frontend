@@ -1,0 +1,159 @@
+<mat-accordion class="example-headers-align">
+
+  <!-- PERSONAL DATA PART -->
+
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Personal Data
+      </mat-panel-title>
+      <mat-panel-description>
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+    <mat-label>Age</mat-label>
+    <input matInput type="number" min="1">
+  </mat-form-field>
+<br>
+    <mat-form-field appearance="fill">
+      <mat-label>GENDER</mat-label>
+      <mat-select>
+        <mat-option value="option">MALE</mat-option>
+        <mat-option value="option">FEMALE</mat-option>
+        <mat-option value="option">OTHER</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+
+  <!-- ADDRESS PART -->
+
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Address
+      </mat-panel-title>
+      <mat-panel-description>
+
+        <mat-icon>place</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <!-- TODO Rozwijane, pobierana z api lista panstw -->
+
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>ZIP-CODE</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <!-- CONTACT INFO PART -->
+
+  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Contact Info
+      </mat-panel-title>
+      <mat-panel-description>
+
+        <mat-icon>perm_contact_calendar</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>Email Address</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Phone number</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Secondary phone number</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">End</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <!-- JOB SPECIFIC INFO PART -->
+
+  <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Job Specific Info
+      </mat-panel-title>
+      <mat-panel-description>
+
+        <mat-icon>build</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>Job Title</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Salary</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Contract type</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">End</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+</mat-accordion>

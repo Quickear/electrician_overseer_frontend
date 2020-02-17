@@ -11,11 +11,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import {EmployeeFormComponent} from '../../modules/employee-form/employee-form.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     DefaultComponent,
-    DashboardComponent
+    DashboardComponent,
+    EmployeeFormComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +35,14 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSidenavModule,
     MatDividerModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule
 
   ],
   providers: [],
