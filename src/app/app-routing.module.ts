@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import {EmployeeFormComponent} from './modules/employee-form/employee-form.component';
+import {EmployeeListComponent} from './modules/employee-list/employee-list.component';
+import {UserComponent} from './modules/user/user.component';
 
 
 const routes: Routes = [{
@@ -15,6 +17,14 @@ const routes: Routes = [{
     {
       path: 'employees-form',
       component: EmployeeFormComponent
+    },
+    {
+      path: 'employees-list',
+      component: EmployeeListComponent
+    },
+    {
+      path: 'users',
+      component: UserComponent
     }]
 }];
 

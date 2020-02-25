@@ -1,5 +1,7 @@
 :host {
-
+  .mat-drawer-container {
+    overflow: hidden; /* Hide scrollbars */
+  }
   .mat-icon {
     vertical-align: middle;
     margin-right: 20px;
@@ -22,5 +24,4 @@
       padding-bottom: 20px;
     }
   }
-
-}
+ }
