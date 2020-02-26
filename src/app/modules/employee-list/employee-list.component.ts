@@ -11,6 +11,8 @@ import {Router} from '@angular/router';
 export class EmployeeListComponent implements OnInit {
 
   employees: Employee[];
+  displayedColumns = ['id', 'firstName', 'lastName', 'jobTitle','jobEmailAddress'];
+
 
   constructor(private router: Router, private employeeService: EmployeeService) {
 

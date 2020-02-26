@@ -8,6 +8,7 @@ export class Employee {
   city: string;
   street: string;
   postCode: string;
+  jobEmailAddress: string;
   privateEmailAddress: string;
   contactNumber: string;
   alternateContactNumber: string;
