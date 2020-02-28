@@ -6,12 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
 import {HttpClientModule} from '@angular/common/http';
 import {EmployeeService} from './service/employee.service';
+import { EmployeeDetailsComponent } from './modules/employee-list/employee-details/employee-details.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    EmployeeDetailsComponent,
   ],
   imports: [
     BrowserModule,
