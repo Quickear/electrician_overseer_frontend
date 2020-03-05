@@ -1,0 +1,24 @@
+.mat-dialog-container {
+  padding: 0;
+  margin: 0;
+  box-sizing: unset;
+}
+
+.mat-form-field {
+  padding-right: 8px;
+}
+
+.jobEmailField, .privateEmailField {
+  cursor: pointer;
+  width: auto;
+  white-space: nowrap;
+  font-size: small;
+}
+
+.jobEmailField:hover, .privateEmailField:hover {
+  color: #06e;
+  transform: scale(1.02);
+ resize: horizontal;
+
+
+}

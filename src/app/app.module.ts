@@ -7,6 +7,10 @@ import { DefaultModule } from './layouts/default/default.module';
 import {HttpClientModule} from '@angular/common/http';
 import {EmployeeService} from './service/employee.service';
 import { EmployeeDetailsComponent } from './modules/employee-list/employee-details/employee-details.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -21,6 +25,11 @@ import { EmployeeDetailsComponent } from './modules/employee-list/employee-detai
     BrowserAnimationsModule,
     DefaultModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatListModule,
+    FormsModule,
+    MatDialogModule,
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

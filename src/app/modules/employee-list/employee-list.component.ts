@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {EmployeeDetailsComponent} from './employee-details/employee-details.component';
 
 export interface DialogData {
+  id: number;
   firstName: string;
   lastName: string;
   dateOfBirth: Date;
@@ -48,8 +49,9 @@ export class EmployeeListComponent implements OnInit {
 
   openDialog(employeeDetails: Employee) {
     this.dialog.open(EmployeeDetailsComponent, {
-      width: '250px',
+      width: '90%',height: '90%',
       data: {
+        id: employeeDetails.id,
         firstName: employeeDetails.firstName,
         lastName: employeeDetails.lastName,
         dateOfBirth: employeeDetails.dateOfBirth,
@@ -64,7 +66,7 @@ export class EmployeeListComponent implements OnInit {
         alternateContactNumber: employeeDetails.contactNumber,
         salary: employeeDetails.salary,
         jobTitle: employeeDetails.jobTitle,
-        contractType: employeeDetails.contactNumber
+        contractType: employeeDetails.contractType
       }
     });
   }
