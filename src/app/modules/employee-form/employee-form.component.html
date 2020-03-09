@@ -42,7 +42,7 @@
       <mat-label>Date of Birth</mat-label>
       <input matInput type="date" [(ngModel)]="employee.dateOfBirth"
              class="form-control"
-             id="date_of_birth"
+             id="dateOfBirth"
              name="dateOfBirth"
              required #dateOfBirth="ngModel">
     </mat-form-field>
@@ -65,7 +65,7 @@
 
 <!--ACCORDION NAVIGATOR-->
     <mat-action-row>
-      <button mat-button color="primary" (click)="nextStep()">Next</button>
+      <button mat-button color="primary" id="nextButtonPersonalInfoPart" (click)="nextStep()">Next</button>
     </mat-action-row>
   </mat-expansion-panel>
 
@@ -134,7 +134,7 @@
 <!--    ACCORDION NAVIGATOR-->
     <mat-action-row>
       <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="nextStep()">Next</button>
+      <button mat-button color="primary" id="nextButtonAddressPart" (click)="nextStep()">Next</button>
     </mat-action-row>
   </mat-expansion-panel>
 
@@ -189,7 +189,7 @@
 <!--ACCORDION NAVIGATOR-->
     <mat-action-row>
       <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="nextStep()">End</button>
+      <button mat-button color="primary" id="nextButtonContactInfoPart" (click)="nextStep()">End</button>
     </mat-action-row>
   </mat-expansion-panel>
 
@@ -253,7 +253,7 @@
 
     <mat-action-row>
       <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="onSubmit()">End</button>
+      <button mat-button color="primary" id="submitButton" (click)="onSubmit()">End</button>
 <!--      TODO: Should pop-up errors in forms-->
     </mat-action-row>
   </mat-expansion-panel>

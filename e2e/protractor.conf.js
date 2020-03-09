@@ -6,14 +6,16 @@ const { SpecReporter } = require('jasmine-spec-reporter');
  * @type { import("protractor").Config }
  */
 exports.config = {
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   allScriptsTimeout: 11000,
   specs: [
-    './src/**/*.e2e-spec.ts'
+    'employee-form.component.spec.js'
   ],
+  highlightDelay: 1000,
   capabilities: {
     browserName: 'firefox'
   },
-  directConnect: true,
+  // directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
