@@ -49,7 +49,7 @@ export class EmployeeListComponent implements OnInit {
 
   openDialog(employeeDetails: Employee) {
     this.dialog.open(EmployeeDetailsComponent, {
-      width: '90%',height: '90%',
+      width: 'auto',height: 'auto',
       data: {
         id: employeeDetails.id,
         firstName: employeeDetails.firstName,
@@ -63,7 +63,7 @@ export class EmployeeListComponent implements OnInit {
         jobEmailAddress: employeeDetails.jobEmailAddress,
         privateEmailAddress: employeeDetails.privateEmailAddress,
         contactNumber: employeeDetails.contactNumber,
-        alternateContactNumber: employeeDetails.contactNumber,
+        alternateContactNumber: employeeDetails.alternateContactNumber,
         salary: employeeDetails.salary,
         jobTitle: employeeDetails.jobTitle,
         contractType: employeeDetails.contractType

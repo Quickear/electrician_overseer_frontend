@@ -1,24 +1,30 @@
-.mat-dialog-container {
-  padding: 0;
-  margin: 0;
-  box-sizing: unset;
+form{
+  display: flex;
+  flex-direction: column;
 }
 
-.mat-form-field {
-  padding-right: 8px;
+@media (min-width: 768px) {
+  .container-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .container-2 {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .jobEmailField, .privateEmailField {
-  cursor: pointer;
-  width: auto;
-  white-space: nowrap;
-  font-size: small;
+  width: 50%;
+
 }
+.jobEmailInput, .privateEmailInput {
+  cursor: pointer;
+  font-size: small;
 
-.jobEmailField:hover, .privateEmailField:hover {
+}
+.jobEmailInput:hover, .privateEmailInput:hover {
   color: #06e;
-  transform: scale(1.02);
- resize: horizontal;
-
-
+  transform: scale(0.99);
 }

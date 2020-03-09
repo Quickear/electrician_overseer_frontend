@@ -1,8 +1,9 @@
 <!--Personal Data Part-->
 <!--First name-->
 <form #employeeDetailsForm="ngForm">
+  <div class="container-1">
   <div class="form-group">
-    <fieldset>
+    <fieldset class="personalData">
       <legend>Personal Data</legend>
       <mat-form-field>
         <mat-label>First Name</mat-label>
@@ -44,11 +45,12 @@
                readonly>
       </mat-form-field>
     </fieldset>
-
+  </div>
     <!--/Personal Data Part-->
 
     <!--Address Part-->
-    <fieldset>
+  <div class="form-group">
+    <fieldset class="address">
       <legend>Address</legend>
       <!--  Country-->
       <mat-form-field>
@@ -90,38 +92,66 @@
                readonly>
       </mat-form-field>
     </fieldset>
+  </div>
+  </div>
     <!--/Address Part-->
 
     <!--Contact Info Part-->
-    <fieldset>
+  <div class="container-2">
+  <div class="form-group">
+    <fieldset class="contactInfoField">
       <legend>Contact Info</legend>
       <!--  Job Emaill Address-->
-      <mat-form-field>
+      <mat-form-field class="jobEmailField">
         <mat-label>Job Email Address</mat-label>
         <input matInput type="text"
                value="{{data.jobEmailAddress}}"
                id="job_email_address"
                name="job_email_address"
-               class="jobEmailField"
+               class="jobEmailInput"
                (click)="mailToJobEmailAddress()"
                readonly>
       </mat-form-field>
 
       <!--Private Email Address-->
-      <mat-form-field >
+      <mat-form-field class="privateEmailField" >
         <mat-label>Private Email Address</mat-label>
         <input matInput type="text"
                value="{{data.privateEmailAddress}}"
                id="private_email_address"
                name="private_email_address"
-               class="privateEmailField"
+               class="privateEmailInput"
                (click)="mailToPrivateEmailAddress()"
                readonly>
       </mat-form-field>
-    </fieldset>
 
+<!--      Contact number-->
+      <mat-form-field class="phoneNumber" >
+        <mat-label>Contact number</mat-label>
+        <input matInput type="text"
+               value="{{data.contactNumber}}"
+               id="phone_number"
+               name="phone_number"
+               class="phoneNumber"
+               readonly>
+      </mat-form-field>
+
+      <!--     Alternate Contact number-->
+      <mat-form-field class="alternatePhoneNumber" >
+        <mat-label>Alternate Contact number</mat-label>
+        <input matInput type="text"
+               value="{{data.alternateContactNumber}}"
+               id="alternate_phone_number"
+               name="phone_number"
+               class="phoneNumber"
+               readonly>
+      </mat-form-field>
+    </fieldset>
+  </div>
     <!--/Contact Info Part-->
+
     <!--  Job Specific Info Part-->
+  <div class="form-group">
     <fieldset>
       <legend>Job Specific Info</legend>
       <!--  Job Title-->
@@ -156,6 +186,7 @@
     </fieldset>
     <!--  /Job Specific Info Part-->
 
+  </div>
   </div>
 </form>
 
