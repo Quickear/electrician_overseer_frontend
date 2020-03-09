@@ -25,6 +25,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,31 +35,32 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     EmployeeListComponent
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    RouterModule,
-    SharedModule,
-    MatTableModule,
-    MatSidenavModule,
-    MatDividerModule,
-    MatIconModule,
-    MatMenuModule,
-    MatExpansionModule,
-    MatNativeDateModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSelectModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        RouterModule,
+        SharedModule,
+        MatTableModule,
+        MatSidenavModule,
+        MatDividerModule,
+        MatIconModule,
+        MatMenuModule,
+        MatExpansionModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        MatSelectModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressSpinnerModule,
+        FormsModule
 
-  ],
+    ],
   providers: [EmployeeService],
   bootstrap: [AppComponent],
 
