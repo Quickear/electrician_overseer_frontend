@@ -1,27 +1,43 @@
-# EoFrontend
+# Electrician Overseer - Frontend (WIP)
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+## General info
+This is my very first own project made for job-seeking purpose. Electrician Overseer is the pet-project that allows me to use my Java (and Spring) and TypeScript (and Angular) knowledge to build a business app.
+EO is an application that allows us to create, delete and manage workers in an electrician business company.
 
-## Development server
+This is front-end part of a project (RESTful API)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Basic plan of functionality:
+- Home page with an explanation of what is this project about. Later it will receive some features like calendar, chatBox with workers or some sort of Agile table maybe. In the basic version, it should say WHO IS LOGGED IN for role testing purposes.
 
-## Code scaffolding
+- Employee pages: CRUD with employee credentials. This will have 2 parts Employee form for creating new employees and Employee List for overseeing those already included in database
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Order page: This should allow us to Create, overlook and edit orders. It should allow setting info like Task ordered, task time started, task time finished, deadline, localization, and workers assigned. Still, try to keep it simple SQL at first and add features later.
 
-## Build
+Documentation: Should keep documentation in it categorized by locations. Probably classic CRUD grid bonded with PDFs.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Locations: Basic concept is to use some external map API to save localisations of tasks and bind documentation with them
+	
+## Technologies
+ Project is created with:
+* Angular
+* Angular Material
+* Protractor
+* HTML, CSS, TypeScript
+* (Unit tests- one day ! but I'm focused more on becoming back-end develper and my time is sadly finite)
 
-## Running unit tests
+## Live 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Soon...
+	
+## Setup
+To run this project, install it locally using npm:
+```
+$ cd ../eoFrontend
+$ npm install
+$ npm start
+```
+To work with data You need to run back-end part as well.
