@@ -11,3 +11,10 @@
 .example-headers-align .mat-form-field + .mat-form-field {
   margin-left: 8px;
 }
+/*.invisible-form { !* Lock if desire to show Job Email Address input field *!*/
+/*  !*display: block;*!*/
+/*  !*visibility: hidden;*!*/
+/*  !*height: 0;*!*/
+/*  !*width: 0;*!*/
+/*}*/
+

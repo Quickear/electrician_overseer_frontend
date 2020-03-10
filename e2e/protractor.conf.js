@@ -11,9 +11,9 @@ exports.config = {
   specs: [
     'employee-form.component.spec.js'
   ],
-  highlightDelay: 1000,
+  // highlightDelay: 500,  //Unlock if you want to observe test
   capabilities: {
-    browserName: 'firefox'
+    browserName: 'chrome'
   },
   // directConnect: true,
   baseUrl: 'http://localhost:4200/',

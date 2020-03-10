@@ -13,16 +13,16 @@ describe('Employee Form Test', function () {
   var contactNumber = element(by.id('contact_number'));
   var alternateContactNumber = element(by.id('alternate_contact_number'));
 
-  var jobTitle = element(by.id('job_title'));
+  var jobTitle = element(by.id('jobTitle'));
   var salary = element(by.id('salary'));
   var contractType = element(by.id('contractType'));
 
   const nextButtonPersonalInfoPart = element(by.id('nextButtonPersonalInfoPart'));
   const nextButtonAddressPart = element(by.id('nextButtonAddressPart'));
   const nextButtonContactInfoPart = element(by.id('nextButtonContactInfoPart'));
-  const submitButton = element(by.id('submitButton'))
+  const submitButton = element(by.id('submitButton'));
 
-  beforeEach(function(){
+  beforeEach(function () {
     browser.get('http://localhost:4200/employees-form')
   });
 
@@ -30,8 +30,16 @@ describe('Employee Form Test', function () {
     // PERSONAL DATA PART
     firstName.sendKeys('TestFirstName');
     lastName.sendKeys('TestLastName');
-    // dateOfBirth.sendKeys('01011991'); TODO: Fix it
-    // TODO: Add Gender test here
+    dateOfBirth.sendKeys('01/01/1991');
+
+    // GENDER SELECTOR BLOCK
+    gender.click();
+    browser.sleep(500);
+    element(by.cssContainingText('mat-option', 'OTHER')).click();
+    // $$('mat-option').get(2).click(); //By index
+    browser.sleep(500);
+    // /GENDER SELECTOR BLOCK
+
     //This should initialize next step of accordion
     nextButtonPersonalInfoPart.click();
 
@@ -46,19 +54,35 @@ describe('Employee Form Test', function () {
 
     // CONTACT INFO PART
     privateEmailAddress.sendKeys('TestEmail@eo.pl');
-    contactNumber.sendKeys('+48 123456789');
-    alternateContactNumber.sendKeys('+48 987654321');
+    contactNumber.sendKeys('123456789');
+    alternateContactNumber.sendKeys('987654321');
 
     //This should initialize next step of accordion
     nextButtonContactInfoPart.click();
 
-   // JOB SPECIFIC INFO PART
-   //  TODO: Add Job title test
-salary.sendKeys('9000');
-// TODO: ADD CONTRACT TYPE TEST
+    // JOB SPECIFIC INFO PART
+
+    // JOB TITLE BLOCK
+    jobTitle.click();
+    browser.sleep(500);
+    element(by.cssContainingText('mat-option', 'OTHER')).click(); //By visible string
+    // $$('mat-option').get(2).click(); //By index
+    browser.sleep(500);
+    // /JOB TITLE BLOCK
+
+    salary.sendKeys('9000');
+
+    // CONTRACT TYPE BLOCK
+    contractType.click();
+    browser.sleep(500);
+    element(by.cssContainingText('mat-option', 'A')).click(); //By visible string
+    // $$('mat-option').get(2).click(); //By index
+    browser.sleep(500);
+    // /CONTRACT TYPE BLOCK
 
     //This should submit Employee data to backend and database
-    // submitButton.click(); TODO: Unlock when test will be ready
+    submitButton.click();
+    browser.sleep(5000000);
 
   });
 });

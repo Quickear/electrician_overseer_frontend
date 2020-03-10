@@ -12,8 +12,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

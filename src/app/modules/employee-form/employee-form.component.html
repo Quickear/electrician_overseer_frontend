@@ -1,261 +1,287 @@
+<form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
 <mat-accordion class="example-headers-align">
   <!-- PERSONAL DATA PART -->
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal Data
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Personal Data
-      </mat-panel-title>
-      <mat-panel-description>
-        <mat-icon>account_circle</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
+      <!-- FIRST NAME LABEL -->
+      <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input matInput type="text" [(ngModel)]="employee.firstName"
+               class="form-control"
+               id="first_name"
+               name="first_name"
+               value="firstName"
+               pattern="([A-Z][a-zA-Z]*)"
+               placeholder="Enter first name of employee"
+               required #firstName="ngModel">
+      </mat-form-field>
+      <!--TODO: Validation-->
 
-    <!-- FIRST NAME LABEL -->
-    <mat-form-field>
-      <mat-label>First name</mat-label>
-      <input matInput type="text" [(ngModel)]="employee.firstName"
-             class="form-control"
-             id="first_name"
-             name="first_name"
-             pattern="([A-Z][a-zA-Z]*)"
-             placeholder="Enter your first name (start with capital letter)"
-             required #firstName="ngModel">
-    </mat-form-field>
-<!--TODO: Validation, first letter uppercase-->
+      <!-- LAST NAME LABEL -->
+      <mat-form-field>
+        <mat-label>Last name</mat-label>
+        <input matInput type="text" [(ngModel)]="employee.lastName"
+               class="form-control"
+               id="last_name"
+               name="last_name"
+               value="lastName"
+               pattern="([A-Z][a-zA-Z]*)"
+               placeholder="Enter your last name (start with capital letter)"
+               required #lastName="ngModel">
+      </mat-form-field>
+      <!--TODO: Validation-->
 
-    <!-- LAST NAME LABEL -->
-    <mat-form-field>
-      <mat-label>Last name</mat-label>
-      <input matInput type="text" [(ngModel)]="employee.lastName"
-             class="form-control"
-             id="last_name"
-             name="last_name"
-             pattern="([A-Z][a-zA-Z]*)"
-             placeholder="Enter your last name (start with capital letter)"
-             required #lastName="ngModel">
-    </mat-form-field>
-    <!--TODO: Validation, first letter uppercase-->
+      <!--DATE OF BIRTH LABEL -->
+      <mat-form-field>
+        <mat-label>Date of Birth</mat-label>
+        <input matInput type="date" [matDatepicker]="dateOfBirth"
+               [(ngModel)]="employee.dateOfBirth"
+               class="form-control"
+               id="dateOfBirth"
+               name="dateOfBirth"
+               required>
+        <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+        <mat-datepicker #dateOfBirth></mat-datepicker>
+      </mat-form-field>
 
-    <!--DATE OF BIRTH LABEL -->
-    <mat-form-field>
-      <mat-label>Date of Birth</mat-label>
-      <input matInput type="date" [(ngModel)]="employee.dateOfBirth"
-             class="form-control"
-             id="dateOfBirth"
-             name="dateOfBirth"
-             required #dateOfBirth="ngModel">
-    </mat-form-field>
-    <br>
-    <!-- GENDER LABEL -->
-    <mat-form-field appearance="fill">
-      <mat-label>GENDER</mat-label>
-      <mat-select
-        class="form-control"
-        id="gender"
-        size="1"
-        required
-        [(ngModel)]="employee.gender" name="gender">
-        <mat-option value="option">MALE</mat-option>
-        <mat-option value="option">FEMALE</mat-option>
-        <mat-option value="option">OTHER</mat-option>
-<!--        TODO: optional specify extra label for OTHER option-->
-      </mat-select>
-    </mat-form-field>
+      <br>
+      <!-- GENDER LABEL -->
+      <mat-form-field>
+        <mat-label>GENDER</mat-label>
+        <mat-select
+          class="form-control"
+          id="gender"
+          name="gender"
+          required
+          [(ngModel)]="employee.gender"
+          #gender="ngModel"
+        >
+          <mat-option value="MALE">MALE</mat-option>
+          <mat-option value="FEMALE">FEMALE</mat-option>
+          <mat-option value="OTHER">OTHER</mat-option>
+          <!--        TODO: optional specify extra label for OTHER option-->
+        </mat-select>
+      </mat-form-field>
 
-<!--ACCORDION NAVIGATOR-->
-    <mat-action-row>
-      <button mat-button color="primary" id="nextButtonPersonalInfoPart" (click)="nextStep()">Next</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-
-
-  <!-- ADDRESS PART -->
-
-  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Address
-      </mat-panel-title>
-      <mat-panel-description>
-
-        <mat-icon>place</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <!-- COUNTRY LABEL -->
-    <mat-form-field>
-      <mat-label>Country</mat-label>
-      <input matInput type="text" [(ngModel)]="employee.country"
-             class="form-control"
-             id="country"
-             name="country"
-             placeholder="Country"
-             required #country="ngModel">
-    </mat-form-field>
-    <!-- TODO Expandable list of countries -->
-
-    <!--CITY LABEL-->
-    <mat-form-field>
-      <mat-label>City</mat-label>
-      <input matInput type="text" [(ngModel)]="employee.city"
-             class="form-control"
-             id="city"
-             name="city"
-             placeholder="Enter your City of living"
-             required #city="ngModel">
-    </mat-form-field>
-<!--    TODO: ensure capital letter-->
-
-    <!--STREET LABEL-->
-    <mat-form-field>
-      <mat-label>Street</mat-label>
-      <input matInput type="text" [(ngModel)]="employee.street"
-             class="form-control"
-             id="street"
-             name="street"
-             placeholder="Enter your address"
-             required #address="ngModel">
-    </mat-form-field>
-
-    <!--POST CODE LABEL-->
-    <mat-form-field>
-      <mat-label>ZIP-CODE</mat-label>
-      <input matInput type="text" [(ngModel)]="employee.postCode"
-             class="form-control"
-             id="post_code"
-             name="post_code"
-             pattern="\d{2}[\-]\d{3}"
-             placeholder="Enter your post code xx-xxx"
-             required #postCode="ngModel">
-    </mat-form-field>
-<!--TODO: ensure xx-xxx pattern-->
-
-<!--    ACCORDION NAVIGATOR-->
-    <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" id="nextButtonAddressPart" (click)="nextStep()">Next</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-
-  <!-- CONTACT INFO PART -->
-
-  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Contact Info
-      </mat-panel-title>
-      <mat-panel-description>
-
-        <mat-icon>perm_contact_calendar</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <!--  PRIVATE EMAIL ADDRESS LABEL-->
-    <mat-form-field>
-      <mat-label>Private Email Address</mat-label>
-      <input matInput type="email" [(ngModel)]="employee.privateEmailAddress"
-             class="form-control"
-             id="privateEMail"
-             name="privateEMail"
-             placeholder="Enter non-required private employee email address"
-             #privateEMail="ngModel">
-    </mat-form-field>
-
-    <!--CONTACT NUMBER LABEL-->
-    <mat-form-field>
-      <mat-label>Phone number</mat-label>
-      <input matInput type="tel" [(ngModel)]="employee.contactNumber"
-             class="form-control"
-             id="contact_number"
-             name="contact_number"
-             pattern="([\+]\d{2}[\ ]\d{9})"
-             placeholder="Enter work phone number for employee"
-             required #contactNumber="ngModel">
-    </mat-form-field>
-    <!--TODO: Add feedback about pattern-->
-
-    <mat-form-field>
-      <mat-label>Secondary phone number</mat-label>
-      <input matInput type="tel" [(ngModel)]="employee.alternateContactNumber"
-             class="form-control"
-             id="alternate_contact_number"
-             name="alternate_contact_number"
-             pattern="([\+]\d{2}[\ ]\d{9})"
-             placeholder="Enter non-required alternate contact number to employee"
-             #alternateContactNumber="ngModel">
-    </mat-form-field>
-    <!--TODO: Add feedback about pattern-->
-
-<!--ACCORDION NAVIGATOR-->
-    <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" id="nextButtonContactInfoPart" (click)="nextStep()">End</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-
-  <!-- JOB SPECIFIC INFO PART -->
-
-  <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Job Specific Info
-      </mat-panel-title>
-      <mat-panel-description>
-
-        <mat-icon>build</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-<!--JOB TITLE LABEL-->
-    <mat-form-field>
-      <mat-label>Job Title</mat-label>
-      <mat-select
-        class="form-control"
-        id="jobTitle"
-        size="1"
-        required
-        [(ngModel)]="employee.jobTitle" name="jobTitle">>
-        <mat-option value="option">MANAGER</mat-option>
-        <mat-option value="option">ENGINEER</mat-option>
-        <mat-option value="option">TECHNICIAN</mat-option>
-        <mat-option value="option">OTHER</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-<!--SALARY-->
-    <mat-form-field>
-      <mat-label>Salary</mat-label>
-      <input matInput type="salary" [(ngModel)]="employee.salary"
-             class="form-control"
-             id="salary"
-             name="salary"
-             placeholder="Enter your employee salary"
-             required #salary="ngModel">
-    </mat-form-field>
-
-<!--CONTRACT TYPE-->
-    <mat-form-field>
-      <mat-label>Contract type</mat-label>
-      <mat-select
-        class="form-control"
-        id="contractType"
-        size="1"
-        required
-        [(ngModel)]="employee.contractType" name="contractType">
-        <mat-option value="option">Owner - Manager only option</mat-option>
-        <mat-option value="option">A</mat-option>
-        <mat-option value="option">B</mat-option>
-        <mat-option value="option">C</mat-option>
-        <mat-option value="option">D</mat-option>
-      </mat-select>
-    </mat-form-field>
-<!--    TODO: Popup label that describe contract type-->
+      <!--ACCORDION NAVIGATOR-->
+      <mat-action-row>
+        <button mat-button color="primary" id="nextButtonPersonalInfoPart"  (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
 
 
-    <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" id="submitButton" (click)="onSubmit()">End</button>
-<!--      TODO: Should pop-up errors in forms-->
-    </mat-action-row>
-  </mat-expansion-panel>
+    <!-- ADDRESS PART -->
 
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Address
+        </mat-panel-title>
+        <mat-panel-description>
+
+          <mat-icon>place</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <!-- COUNTRY LABEL -->
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <input matInput type="text" [(ngModel)]="employee.country"
+               class="form-control"
+               id="country"
+               name="country"
+               placeholder="Country"
+               required #country="ngModel">
+      </mat-form-field>
+      <!-- TODO Expandable list of countries -->
+
+      <!--CITY LABEL-->
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <input matInput type="text" [(ngModel)]="employee.city"
+               class="form-control"
+               id="city"
+               name="city"
+               placeholder="Enter your City of living"
+               required #city="ngModel">
+      </mat-form-field>
+
+
+      <!--STREET LABEL-->
+      <mat-form-field>
+        <mat-label>Street</mat-label>
+        <input matInput type="text" [(ngModel)]="employee.street"
+               class="form-control"
+               id="street"
+               name="street"
+               placeholder="Enter your address"
+               required #address="ngModel">
+      </mat-form-field>
+
+      <!--POST CODE LABEL-->
+      <mat-form-field>
+        <mat-label>ZIP-CODE</mat-label>
+        <input matInput type="text" [(ngModel)]="employee.postCode"
+               class="form-control"
+               id="post_code"
+               name="post_code"
+               pattern="\d{2}[\-]\d{3}"
+               placeholder="Enter your post code xx-xxx"
+               required #postCode="ngModel">
+      </mat-form-field>
+      <!--TODO: ensure xx-xxx pattern-->
+
+      <!--    ACCORDION NAVIGATOR-->
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" id="nextButtonAddressPart" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <!-- CONTACT INFO PART -->
+
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Contact Info
+        </mat-panel-title>
+        <mat-panel-description>
+
+          <mat-icon>perm_contact_calendar</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <!--    JOB EMAIL ADDRESS LABEL-->
+      <!--    WARNING: This is suppose to stay hidden as it's being used
+      to auto-generate job email address from first and last name.
+      If desire to show said please comment css part for it -->
+      <mat-form-field>
+        <mat-label>Auto-generated Job Email Address</mat-label>
+        <input matInput type="email"
+               class="form-control"
+               id="jobEMail"
+               name="jobEmail"
+               value="{{employee.firstName}}.{{employee.lastName}}@eo.pl"
+               [(ngModel)]="employee.jobEmailAddress"
+               #jobEmail="ngModel"
+               readonly>
+      </mat-form-field>
+      <!--  PRIVATE EMAIL ADDRESS LABEL-->
+      <mat-form-field>
+        <mat-label>Private Email Address</mat-label>
+        <input matInput type="email" [(ngModel)]="employee.privateEmailAddress"
+               class="form-control"
+               id="privateEMail"
+               name="privateEMail"
+               placeholder="Enter non-required private employee email address"
+               #privateEMail="ngModel">
+      </mat-form-field>
+
+      <!--CONTACT NUMBER LABEL-->
+      <mat-form-field>
+        <mat-label>Phone number</mat-label>
+        <input matInput type="tel" [(ngModel)]="employee.contactNumber"
+               class="form-control"
+               id="contact_number"
+               name="contact_number"
+               placeholder="Enter work phone number for employee"
+               required #contactNumber="ngModel">
+
+
+      </mat-form-field>
+      <!--TODO: Add feedback about pattern-->
+
+      <mat-form-field>
+        <mat-label>Secondary phone number</mat-label>
+        <input matInput type="tel" [(ngModel)]="employee.alternateContactNumber"
+               class="form-control"
+               id="alternate_contact_number"
+               name="alternate_contact_number"
+               placeholder="Enter non-required alternate contact number to employee"
+               #alternateContactNumber="ngModel">
+      </mat-form-field>
+      <!--TODO: Add feedback about pattern-->
+
+      <!--ACCORDION NAVIGATOR-->
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" id="nextButtonContactInfoPart" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <!-- JOB SPECIFIC INFO PART -->
+
+    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Job Specific Info
+        </mat-panel-title>
+        <mat-panel-description>
+
+          <mat-icon>build</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!--JOB TITLE LABEL-->
+      <mat-form-field>
+        <mat-label>Job Title</mat-label>
+        <mat-select
+          class="form-control"
+          id="jobTitle"
+          required
+          [(ngModel)]="employee.jobTitle" name="jobTitle">
+          <mat-option value="MANAGER">MANAGER</mat-option>
+          <mat-option value="ENGINEER">ENGINEER</mat-option>
+          <mat-option value="TECHNICIAN">TECHNICIAN</mat-option>
+          <mat-option value="OTHER">OTHER</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!--SALARY-->
+      <mat-form-field>
+        <mat-label>Salary</mat-label>
+        <input matInput type="salary" [(ngModel)]="employee.salary"
+               class="form-control"
+               id="salary"
+               name="salary"
+               placeholder="Enter your employee salary"
+               required #salary="ngModel">
+      </mat-form-field>
+
+      <!--CONTRACT TYPE-->
+      <mat-form-field>
+        <mat-label>Contract type</mat-label>
+        <mat-select
+          class="form-control"
+          id="contractType"
+          required
+          [(ngModel)]="employee.contractType" name="contractType">
+          <mat-option value="OWNER">Owner - Manager only option</mat-option>
+          <mat-option value="A">A</mat-option>
+          <mat-option value="B">B</mat-option>
+          <mat-option value="C">C</mat-option>
+          <mat-option value="D">D</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!--    TODO: Popup label that describe contract type-->
+
+
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" id="submitButton" type="submit"
+                (click)="onSubmit()">Submit
+        </button>
+        <!--      TODO: Should pop-up errors in forms after clicking Submit button-->
+      </mat-action-row>
+    </mat-expansion-panel>
+    <!--      TODO: REMOVE SPY WHEN READY-->
+    SPY: {{employee | json}}
 </mat-accordion>
+</form>

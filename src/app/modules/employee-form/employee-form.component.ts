@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EmployeeService} from '../../service/employee.service';
 import {Employee} from '../../models/employee';
+import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-employee-form',
@@ -32,11 +34,9 @@ export class EmployeeFormComponent implements OnInit {
     private employeeService: EmployeeService) {
     this.employee = new Employee();
   }
+
   onSubmit() {
-    this.employeeService.save(this.employee).subscribe(result => this.gotoUserList());
-  }
-  gotoUserList() {
-    this.router.navigate(['/employees-list']);
+    this.employeeService.save(this.employee).subscribe(); // TODO: Not working
   }
   ngOnInit(): void {
 
