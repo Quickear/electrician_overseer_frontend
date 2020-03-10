@@ -22,7 +22,7 @@ Documentation: Should keep documentation in it categorized by locations. Probabl
 Locations: Basic concept is to use some external map API to save localisations of tasks and bind documentation with them
 	
 ## Technologies
-* Project is created with:
+ Project is created with:
 * Angular
 * Angular Material
 * Protractor
