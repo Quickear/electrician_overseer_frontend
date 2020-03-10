@@ -22,12 +22,12 @@ Documentation: Should keep documentation in it categorized by locations. Probabl
 Locations: Basic concept is to use some external map API to save localisations of tasks and bind documentation with them
 	
 ## Technologies
-Project is created with:
-Angular
-Angular Material
-Protractor
-HTML, CSS, TypeScript
-(Unit tests- one day ! but I'm focused more on becoming back-end develper)
+* Project is created with:
+* Angular
+* Angular Material
+* Protractor
+* HTML, CSS, TypeScript
+* (Unit tests- one day ! but I'm focused more on becoming back-end develper and my time is sadly finite)
 
 ## Live 
 
