@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
-<mat-accordion class="example-headers-align">
-  <!-- PERSONAL DATA PART -->
-    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+  <mat-accordion class="example-headers-align">
+    <!-- PERSONAL DATA PART -->
+    <mat-expansion-panel id="personalDataAccordionPanel" hideToggle expanded="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Personal Data
@@ -42,7 +42,7 @@
       <!--DATE OF BIRTH LABEL -->
       <mat-form-field>
         <mat-label>Date of Birth</mat-label>
-        <input matInput type="date" [matDatepicker]="dateOfBirth"
+        <input matInput [matDatepicker]="dateOfBirth"
                [(ngModel)]="employee.dateOfBirth"
                class="form-control"
                id="dateOfBirth"
@@ -70,17 +70,12 @@
           <!--        TODO: optional specify extra label for OTHER option-->
         </mat-select>
       </mat-form-field>
-
-      <!--ACCORDION NAVIGATOR-->
-      <mat-action-row>
-        <button mat-button color="primary" id="nextButtonPersonalInfoPart"  (click)="nextStep()">Next</button>
-      </mat-action-row>
     </mat-expansion-panel>
 
 
     <!-- ADDRESS PART -->
 
-    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel id="addressAccordionPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
           Address
@@ -138,17 +133,11 @@
                required #postCode="ngModel">
       </mat-form-field>
       <!--TODO: ensure xx-xxx pattern-->
-
-      <!--    ACCORDION NAVIGATOR-->
-      <mat-action-row>
-        <button mat-button color="warn" (click)="prevStep()">Previous</button>
-        <button mat-button color="primary" id="nextButtonAddressPart" (click)="nextStep()">Next</button>
-      </mat-action-row>
     </mat-expansion-panel>
 
     <!-- CONTACT INFO PART -->
 
-    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel id="contactInfoAccordionPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
           Contact Info
@@ -160,18 +149,15 @@
       </mat-expansion-panel-header>
 
       <!--    JOB EMAIL ADDRESS LABEL-->
-      <!--    WARNING: This is suppose to stay hidden as it's being used
-      to auto-generate job email address from first and last name.
-      If desire to show said please comment css part for it -->
       <mat-form-field>
         <mat-label>Auto-generated Job Email Address</mat-label>
         <input matInput type="email"
                class="form-control"
                id="jobEMail"
                name="jobEmail"
-               value="{{employee.firstName}}.{{employee.lastName}}@eo.pl"
                [(ngModel)]="employee.jobEmailAddress"
                #jobEmail="ngModel"
+               value="{{employee.firstName}}.{{employee.lastName}}@eo.pl"
                readonly>
       </mat-form-field>
       <!--  PRIVATE EMAIL ADDRESS LABEL-->
@@ -211,15 +197,11 @@
       <!--TODO: Add feedback about pattern-->
 
       <!--ACCORDION NAVIGATOR-->
-      <mat-action-row>
-        <button mat-button color="warn" (click)="prevStep()">Previous</button>
-        <button mat-button color="primary" id="nextButtonContactInfoPart" (click)="nextStep()">Next</button>
-      </mat-action-row>
     </mat-expansion-panel>
 
     <!-- JOB SPECIFIC INFO PART -->
 
-    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+    <mat-expansion-panel id="jobSpecificInfoAccordionPanel" hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
           Job Specific Info
@@ -271,17 +253,14 @@
         </mat-select>
       </mat-form-field>
       <!--    TODO: Popup label that describe contract type-->
-
-
-      <mat-action-row>
-        <button mat-button color="warn" (click)="prevStep()">Previous</button>
-        <button mat-button color="primary" id="submitButton" type="submit"
-                (click)="onSubmit()">Submit
-        </button>
-        <!--      TODO: Should pop-up errors in forms after clicking Submit button-->
-      </mat-action-row>
     </mat-expansion-panel>
+    <mat-action-row>
+      <button mat-button color="primary" id="submitButton" type="submit"  [disabled]="!employeeForm.form.valid"
+              (click)="adaptEmployeeToJSON(employee)"       >Submit</button>
+      <!--      TODO: Should pop-up errors in forms after clicking Submit button-->
+      <!--      TODO Should check if employee isn't already present in database and prevent duplicates-->
+    </mat-action-row>
     <!--      TODO: REMOVE SPY WHEN READY-->
     SPY: {{employee | json}}
-</mat-accordion>
+  </mat-accordion>
 </form>

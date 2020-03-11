@@ -17,7 +17,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {EmployeeListComponent} from '../../modules/employee-list/employee-list.component';
 import {EmployeeService} from '../../service/employee.service';
@@ -61,7 +61,7 @@ import {FormsModule} from '@angular/forms';
         FormsModule
 
     ],
-  providers: [EmployeeService],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'pl-PL'}, EmployeeService],
   bootstrap: [AppComponent],
 
 })
