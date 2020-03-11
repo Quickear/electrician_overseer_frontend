@@ -13,7 +13,7 @@ constructor(private http: HttpClient) {
   this.employeeURL = 'http://localhost:8080/api/employees/'
 }
 public findAll(): Observable<Employee[]> {
-  return this.http.get<Employee[]>(this.employeeURL);
+  return this.http.get<Employee[]>('http://localhost:8080/api/employees/all');
 }
 
 public save(employee: Employee) {

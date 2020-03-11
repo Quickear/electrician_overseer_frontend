@@ -17,9 +17,10 @@ describe('Employee Form Test', function () {
   var salary = element(by.id('salary'));
   var contractType = element(by.id('contractType'));
 
-  const nextButtonPersonalInfoPart = element(by.id('nextButtonPersonalInfoPart'));
-  const nextButtonAddressPart = element(by.id('nextButtonAddressPart'));
-  const nextButtonContactInfoPart = element(by.id('nextButtonContactInfoPart'));
+  const personalDataAccordionPanel = element(by.id('personalDataAccordionPanel'));
+  const addressAccordionPanel = element(by.id('addressAccordionPanel'));
+  const contactInfoAccordionPanel = element(by.id('contactInfoAccordionPanel'));
+  const jobSpecificInfoAccordionPanel = element(by.id('jobSpecificInfoAccordionPanel'));
   const submitButton = element(by.id('submitButton'));
 
   beforeEach(function () {
@@ -41,7 +42,7 @@ describe('Employee Form Test', function () {
     // /GENDER SELECTOR BLOCK
 
     //This should initialize next step of accordion
-    nextButtonPersonalInfoPart.click();
+    addressAccordionPanel.click();
 
     // ADDRESS PART
     country.sendKeys('TestCountry'); //TODO: Refactor it when country list will be added
@@ -50,7 +51,7 @@ describe('Employee Form Test', function () {
     postCode.sendKeys('11-111');
 
     //This should initialize next step of accordion
-    nextButtonAddressPart.click();
+    contactInfoAccordionPanel.click();
 
     // CONTACT INFO PART
     privateEmailAddress.sendKeys('TestEmail@eo.pl');
@@ -58,7 +59,7 @@ describe('Employee Form Test', function () {
     alternateContactNumber.sendKeys('987654321');
 
     //This should initialize next step of accordion
-    nextButtonContactInfoPart.click();
+    jobSpecificInfoAccordionPanel.click();
 
     // JOB SPECIFIC INFO PART
 

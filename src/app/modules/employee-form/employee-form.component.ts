@@ -4,7 +4,6 @@ import {EmployeeService} from '../../service/employee.service';
 import {Employee} from '../../models/employee';
 import {NgForm} from '@angular/forms';
 
-
 @Component({
   selector: 'app-employee-form',
   templateUrl: './employee-form.component.html',
@@ -14,20 +13,6 @@ export class EmployeeFormComponent implements OnInit {
 
   employee: Employee;
 
-  // Stepper
-  step = 0;
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
-  }
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -35,12 +20,15 @@ export class EmployeeFormComponent implements OnInit {
     this.employee = new Employee();
   }
 
+  // It is sending Employee JSON to backend via HTTP POST REQUEST
   onSubmit() {
-    this.employeeService.save(this.employee).subscribe(); // TODO: Not working
+    this.employeeService.save(this.employee).subscribe();
   }
-  ngOnInit(): void {
+  ngOnInit(): void {  }
 
+  // It adds job email address auto-generated from first and last name to JSON
+  adaptEmployeeToJSON(employee) {
+    employee.jobEmailAddress = employee.firstName + '.' + employee.lastName+'@eo.pl'
+    employee.dateOfBirth.setHours(12)
   }
-
-
 }
