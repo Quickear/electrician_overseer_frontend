@@ -1,29 +1,27 @@
-export class Employee {
+import{Address} from './address';
+import{ContactInfo} from './contactInfo';
+
+export class Employee{
   id: number;
   firstName: string;
   lastName: string;
   dateOfBirth: Date;
   gender: any;
-  country: any;
-  city: string;
-  street: string;
-  postCode: string;
   jobEmailAddress: string;
-  privateEmailAddress: string;
-  contactNumber: string;
-  alternateContactNumber: string;
   salary: number;
   jobTitle: any;
   contractType: any;
+  country: string;
+  address: Address;
+  contactInfo: ContactInfo;
+}
 
 
 
 
 
 
-
-
-  // createTime: number; // TODO: Add itwhen ready in backend
+  // createTime: number; // TODO: Add it when ready in backend
   // lastUpdated: number;
 
-}
+

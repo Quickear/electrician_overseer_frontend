@@ -1,3 +1,6 @@
+SPY: {{employee | json}}
+SPY: {{employee.address | json}}
+SPY: {{employee.contactInfo | json}}
 <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
   <mat-accordion class="example-headers-align">
     <!-- PERSONAL DATA PART -->
@@ -89,7 +92,7 @@
       <!-- COUNTRY LABEL -->
       <mat-form-field>
         <mat-label>Country</mat-label>
-        <input matInput type="text" [(ngModel)]="employee.country"
+        <input matInput type="text" [(ngModel)]="employee.address.country"
                class="form-control"
                id="country"
                name="country"
@@ -101,7 +104,7 @@
       <!--CITY LABEL-->
       <mat-form-field>
         <mat-label>City</mat-label>
-        <input matInput type="text" [(ngModel)]="employee.city"
+        <input matInput type="text" [(ngModel)]="employee.address.city"
                class="form-control"
                id="city"
                name="city"
@@ -113,18 +116,18 @@
       <!--STREET LABEL-->
       <mat-form-field>
         <mat-label>Street</mat-label>
-        <input matInput type="text" [(ngModel)]="employee.street"
+        <input matInput type="text" [(ngModel)]="employee.address.street"
                class="form-control"
                id="street"
                name="street"
                placeholder="Enter your address"
-               required #address="ngModel">
+               required #street="ngModel">
       </mat-form-field>
 
       <!--POST CODE LABEL-->
       <mat-form-field>
         <mat-label>ZIP-CODE</mat-label>
-        <input matInput type="text" [(ngModel)]="employee.postCode"
+        <input matInput type="text" [(ngModel)]="employee.address.postCode"
                class="form-control"
                id="post_code"
                name="post_code"
@@ -158,12 +161,12 @@
                [(ngModel)]="employee.jobEmailAddress"
                #jobEmail="ngModel"
                value="{{employee.firstName}}.{{employee.lastName}}@eo.pl"
-               readonly>
+               >
       </mat-form-field>
       <!--  PRIVATE EMAIL ADDRESS LABEL-->
       <mat-form-field>
         <mat-label>Private Email Address</mat-label>
-        <input matInput type="email" [(ngModel)]="employee.privateEmailAddress"
+        <input matInput type="email" [(ngModel)]="employee.contactInfo.emailAddress"
                class="form-control"
                id="privateEMail"
                name="privateEMail"
@@ -174,7 +177,7 @@
       <!--CONTACT NUMBER LABEL-->
       <mat-form-field>
         <mat-label>Phone number</mat-label>
-        <input matInput type="tel" [(ngModel)]="employee.contactNumber"
+        <input matInput type="tel" [(ngModel)]="employee.contactInfo.contactNumber"
                class="form-control"
                id="contact_number"
                name="contact_number"
@@ -187,7 +190,7 @@
 
       <mat-form-field>
         <mat-label>Secondary phone number</mat-label>
-        <input matInput type="tel" [(ngModel)]="employee.alternateContactNumber"
+        <input matInput type="tel" [(ngModel)]="employee.contactInfo.alternateContactNumber"
                class="form-control"
                id="alternate_contact_number"
                name="alternate_contact_number"
@@ -256,11 +259,11 @@
     </mat-expansion-panel>
     <mat-action-row>
       <button mat-button color="primary" id="submitButton" type="submit"  [disabled]="!employeeForm.form.valid"
-              (click)="adaptEmployeeToJSON(employee)"       >Submit</button>
+              (click)="adaptEmployeeToJSON(employee)">Submit</button>
       <!--      TODO: Should pop-up errors in forms after clicking Submit button-->
-      <!--      TODO Should check if employee isn't already present in database and prevent duplicates-->
+      <!--      TODO Handle HTTP response in snackbar with OK/Error duplicate-->
     </mat-action-row>
     <!--      TODO: REMOVE SPY WHEN READY-->
-    SPY: {{employee | json}}
+
   </mat-accordion>
 </form>

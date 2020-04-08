@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {EmployeeService} from '../../service/employee.service';
 import {Employee} from '../../models/employee';
 import {NgForm} from '@angular/forms';
+import {ContactInfo} from '../../models/contactInfo';
+import {Address} from '../../models/address';
 
 @Component({
   selector: 'app-employee-form',
@@ -12,6 +14,8 @@ import {NgForm} from '@angular/forms';
 export class EmployeeFormComponent implements OnInit {
 
   employee: Employee;
+  address: Address;
+  contactInfo: ContactInfo;
 
   constructor(
     private route: ActivatedRoute,

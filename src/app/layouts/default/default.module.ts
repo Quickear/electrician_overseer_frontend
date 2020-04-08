@@ -26,13 +26,26 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FormsModule} from '@angular/forms';
+import {EmployeeDetailsComponent} from '../../modules/employee-list/employee-details/employee-details.component';
+import {CustomerFormComponent} from '../../modules/customer-form/customer-form.component';
+import {CustomerListComponent} from '../../modules/customer-list/customer-list.component';
+import {JobOrderFormComponent} from '../../modules/job-order-form/job-order-form.component';
+import {JobOrderListComponent} from '../../modules/job-order-list/job-order-list.component';
+import {CustomerDetailsComponent} from '../../modules/customer-list/customer-details/customer-details.component';
+import {CustomerService} from '../../service/customer.service';
 
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
     EmployeeFormComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    EmployeeDetailsComponent,
+    CustomerFormComponent,
+    CustomerListComponent,
+    JobOrderFormComponent,
+    JobOrderListComponent,
+    CustomerDetailsComponent,
 
   ],
     imports: [
@@ -61,7 +74,7 @@ import {FormsModule} from '@angular/forms';
         FormsModule
 
     ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'pl-PL'}, EmployeeService],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'pl-PL'}, EmployeeService, CustomerService],
   bootstrap: [AppComponent],
 
 })
